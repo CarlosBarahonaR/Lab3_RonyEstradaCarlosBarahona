@@ -6,6 +6,7 @@
 package lab3_ronyestradacarlosbarahona;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -15,8 +16,8 @@ public class Marcas {
 
     private String nombre;
     private String slogan;
-    private Date año;
-    private Date integro;
+    private GregorianCalendar año;
+    private GregorianCalendar integracion;
     private String fundador;
     private int ventas;
     private String presidente;
@@ -25,11 +26,11 @@ public class Marcas {
     public Marcas() {
     }
 
-    public Marcas(String nombre, String slogan, Date año, Date integro, String fundador, int ventas, String presidente, int modelos) {
+    public Marcas(String nombre, String slogan, GregorianCalendar año, GregorianCalendar integracion, String fundador, int ventas, String presidente, int modelos) {
         this.nombre = nombre;
         this.slogan = slogan;
         this.año = año;
-        this.integro = integro;
+        this.integracion = integracion;
         this.fundador = fundador;
         this.ventas = ventas;
         this.presidente = presidente;
@@ -52,20 +53,20 @@ public class Marcas {
         this.slogan = slogan;
     }
 
-    public Date getAño() {
+    public GregorianCalendar getAño() {
         return año;
     }
 
-    public void setAño(Date año) {
+    public void setAño(GregorianCalendar año) {
         this.año = año;
     }
 
-    public Date getIntegro() {
-        return integro;
+    public GregorianCalendar getIntegracion() {
+        return integracion;
     }
 
-    public void setIntegro(Date integro) {
-        this.integro = integro;
+    public void setIntegracion(GregorianCalendar integracion) {
+        this.integracion = integracion;
     }
 
     public String getFundador() {
@@ -102,7 +103,7 @@ public class Marcas {
 
     @Override
     public String toString() {
-        return "Marcas{" + "nombre=" + nombre + ", slogan=" + slogan + ", a\u00f1o=" + año + ", integro=" + integro + ", fundador=" + fundador + ", ventas=" + ventas + ", presidente=" + presidente + ", modelos=" + modelos + '}';
+        return "Marcas{" + "nombre=" + nombre + ", slogan=" + slogan + ", año=" + año + ", integracion=" + integracion + ", fundador=" + fundador + ", ventas=" + ventas + ", presidente=" + presidente + ", modelos=" + modelos + '}';
     }
 
 }

@@ -6,6 +6,7 @@
 package lab3_ronyestradacarlosbarahona;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -20,8 +21,14 @@ public class Premium extends Marcas {
     public Premium() {
     }
 
-    public Premium(String mardepo, String nomlujo, String carroceria, String nombre, String slogan, Date año, Date integro, String fundador, int ventas, String presidente, int modelos) {
-        super(nombre, slogan, año, integro, fundador, ventas, presidente, modelos);
+    public Premium(String mardepo, String nomlujo, String carroceria) {
+        this.mardepo = mardepo;
+        this.nomlujo = nomlujo;
+        this.carroceria = carroceria;
+    }
+
+    public Premium(String mardepo, String nomlujo, String carroceria, String nombre, String slogan, GregorianCalendar año, GregorianCalendar integracion, String fundador, int ventas, String presidente, int modelos) {
+        super(nombre, slogan, año, integracion, fundador, ventas, presidente, modelos);
         this.mardepo = mardepo;
         this.nomlujo = nomlujo;
         this.carroceria = carroceria;

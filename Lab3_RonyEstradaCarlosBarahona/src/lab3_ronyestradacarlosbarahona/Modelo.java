@@ -6,6 +6,7 @@
 package lab3_ronyestradacarlosbarahona;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.util.Date;
 public class Modelo {
 
     private String nombreMod;
-    private Date año;
+    private GregorianCalendar año;
     private String tipo;
     private int clindrada;
     private int precio;
@@ -24,7 +25,7 @@ public class Modelo {
     public Modelo() {
     }
 
-    public Modelo(String nombreMod, Date año, String tipo, int clindrada, int precio, String tecnologia, String carroceria) {
+    public Modelo(String nombreMod, GregorianCalendar año, String tipo, int clindrada, int precio, String tecnologia, String carroceria) {
         this.nombreMod = nombreMod;
         this.año = año;
         this.tipo = tipo;
@@ -42,11 +43,11 @@ public class Modelo {
         this.nombreMod = nombreMod;
     }
 
-    public Date getAño() {
+    public GregorianCalendar getAño() {
         return año;
     }
 
-    public void setAño(Date año) {
+    public void setAño(GregorianCalendar año) {
         this.año = año;
     }
 

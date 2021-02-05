@@ -7,6 +7,7 @@ package lab3_ronyestradacarlosbarahona;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -16,7 +17,7 @@ public class CorpAuto {
 
     private String nombre;
     private String sede;
-    private Date año;
+    private GregorianCalendar año;
     private String presidente;
     private int empleados;
     private int autos;
@@ -25,7 +26,7 @@ public class CorpAuto {
     public CorpAuto() {
     }
 
-    public CorpAuto(String nombre, String sede, Date año, String presidente, int empleados, int autos) {
+    public CorpAuto(String nombre, String sede, GregorianCalendar año, String presidente, int empleados, int autos) {
         this.nombre = nombre;
         this.sede = sede;
         this.año = año;
@@ -50,11 +51,11 @@ public class CorpAuto {
         this.sede = sede;
     }
 
-    public Date getAño() {
+    public GregorianCalendar getAño() {
         return año;
     }
 
-    public void setAño(Date año) {
+    public void setAño(GregorianCalendar año) {
         this.año = año;
     }
 

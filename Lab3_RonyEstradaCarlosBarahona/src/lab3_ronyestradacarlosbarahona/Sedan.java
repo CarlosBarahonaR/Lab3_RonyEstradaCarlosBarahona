@@ -7,6 +7,7 @@ package lab3_ronyestradacarlosbarahona;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -21,7 +22,7 @@ public class Sedan extends Modelo {
     public Sedan() {
     }
 
-    public Sedan(boolean aindroidP, boolean androidA, String nombreMod, Date año, String tipo, int clindrada, int precio, String tecnologia, String carroceria) {
+    public Sedan(boolean aindroidP, boolean androidA, String nombreMod, GregorianCalendar año, String tipo, int clindrada, int precio, String tecnologia, String carroceria) {
         super(nombreMod, año, tipo, clindrada, precio, tecnologia, carroceria);
         this.aindroidP = aindroidP;
         this.androidA = androidA;

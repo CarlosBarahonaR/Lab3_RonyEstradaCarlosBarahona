@@ -7,6 +7,7 @@ package lab3_ronyestradacarlosbarahona;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -15,14 +16,14 @@ import java.util.Date;
 public class DivisionTec {
 
     private String nombre;
-    private Date creacion;
+    private GregorianCalendar creacion;
     private String campo;
     private ArrayList<String> tecnologia = new ArrayList();
 
     public DivisionTec() {
     }
 
-    public DivisionTec(String nombre, Date creacion, String campo) {
+    public DivisionTec(String nombre, GregorianCalendar creacion, String campo) {
         this.nombre = nombre;
         this.creacion = creacion;
         this.campo = campo;
@@ -36,11 +37,11 @@ public class DivisionTec {
         this.nombre = nombre;
     }
 
-    public Date getCreacion() {
+    public GregorianCalendar getCreacion() {
         return creacion;
     }
 
-    public void setCreacion(Date creacion) {
+    public void setCreacion(GregorianCalendar creacion) {
         this.creacion = creacion;
     }
 

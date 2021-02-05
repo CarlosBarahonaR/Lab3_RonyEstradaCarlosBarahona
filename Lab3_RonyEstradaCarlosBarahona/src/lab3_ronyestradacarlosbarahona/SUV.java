@@ -6,6 +6,7 @@
 package lab3_ronyestradacarlosbarahona;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -26,7 +27,7 @@ public class SUV extends Modelo {
         this.navegador = navegador;
     }
 
-    public SUV(boolean CuatroXCuatro, int pasajeros, String navegador, String nombreMod, Date año, String tipo, int clindrada, int precio, String tecnologia, String carroceria) {
+    public SUV(boolean CuatroXCuatro, int pasajeros, String navegador, String nombreMod, GregorianCalendar año, String tipo, int clindrada, int precio, String tecnologia, String carroceria) {
         super(nombreMod, año, tipo, clindrada, precio, tecnologia, carroceria);
         this.CuatroXCuatro = CuatroXCuatro;
         this.pasajeros = pasajeros;

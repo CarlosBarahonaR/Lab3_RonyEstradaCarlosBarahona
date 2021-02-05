@@ -6,6 +6,7 @@
 package lab3_ronyestradacarlosbarahona;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -18,8 +19,12 @@ public class Generalista extends Marcas {
     public Generalista() {
     }
 
-    public Generalista(String tipo, String nombre, String slogan, Date año, Date integro, String fundador, int ventas, String presidente, int modelos) {
-        super(nombre, slogan, año, integro, fundador, ventas, presidente, modelos);
+    public Generalista(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public Generalista(String tipo, String nombre, String slogan, GregorianCalendar año, GregorianCalendar integracion, String fundador, int ventas, String presidente, int modelos) {
+        super(nombre, slogan, año, integracion, fundador, ventas, presidente, modelos);
         this.tipo = tipo;
     }
 
