@@ -17,18 +17,22 @@ import javax.swing.JOptionPane;
  */
 public class Lab3_RonyEstradaCarlosBarahona {
 
+    public static boolean marca2 = false;
+    public static boolean model3 = false;
+
     /**
      * @param args the command line arguments
      */
     // TODO code application logic here
-    public boolean marca2 = false;
-    public boolean model3 = false;
-
     public static void main(String[] args) {
+
         Scanner lectura = new Scanner(System.in);
         int opcion = 0;
         ArrayList<Fabricas> fabrica = new ArrayList();
         ArrayList<DivisionTec> divTec = new ArrayList();
+        ArrayList corp = new ArrayList();
+        ArrayList marka = new ArrayList();
+        ArrayList Model = new ArrayList();
         while (opcion != 7) {
             System.out.println("    seleccione una opcion\n"
                     + "1• Corporaciones\n"
@@ -40,34 +44,428 @@ public class Lab3_RonyEstradaCarlosBarahona {
                     + "7• out");
             opcion = lectura.nextInt();
             switch (opcion) {
-                case 1: {
-                    System.out.println("Nombre");
-                    String nombre = lectura.next();
-                    System.out.println("Sede");
-                    String sede = lectura.next();
-                    System.out.println("Año fabricado");
-                    System.out.println("año");
-                    int año = lectura.nextInt();
-                    System.out.println("mes");
-                    int mes = lectura.nextInt();
-                    System.out.println("dia");
-                    int dia = lectura.nextInt();
-                    GregorianCalendar gc = new GregorianCalendar(año, mes, dia);
-                    String presidente;
-                    int número_empleados;
-                    int CantidadAutos_fabrican; // se tiene que sumar 1 por cada nueva adición en fábricas.
-                    ArrayList marca;
+                case 1: {//coorporacion
+                    System.out.println("seleccione una opcion\n"
+                            + "1. agregar\n"
+                            + "2. modificar\n"
+                            + "3. eliminar\n"
+                            + "4. listar");
+                    int opcioncorp = lectura.nextInt();
+                    if (opcioncorp == 1) {
+                        System.out.println("Nombre");
+                        String nombre = lectura.next();
+                        System.out.println("Sede");
+                        String sede = lectura.next();
+                        System.out.println("Año fabricado");
+                        System.out.println("año");
+                        int año = lectura.nextInt();
+                        System.out.println("mes");
+                        int mes = lectura.nextInt();
+                        System.out.println("dia");
+                        int dia = lectura.nextInt();
+                        Date gc = new Date(dia, mes, año);
+                        System.out.println("nombre de precidente");
+                        String presidente = lectura.next();
+                        System.out.println("numero de empleados");
+                        int número_empleados = lectura.nextInt();
+                        System.out.println("cantidad de autos fabricados");
+                        int CantidadAutos_fabrican = lectura.nextInt(); // se tiene que sumar 1 por cada nueva adición en fábricas.
+                        ArrayList marca = new ArrayList();
+                        char resp = 's';
+                        while (resp == 's' || resp == 'S') {
+                            System.out.println("agrege marca");
+                            String mark = lectura.next();
+                            marca.add(mark);
+                            System.out.println("continua...");
+                            resp = lectura.next().charAt(0);
+                        }
 
+                        corp.add(new CorpAuto(nombre, sede, gc, presidente, número_empleados, CantidadAutos_fabrican, marca));
+                        marca2 = true;
+                        model3 = true;
+                    }
+
+                    if (opcioncorp == 2) {
+
+                        System.out.println("seleccion numero de lista");
+                        int op = lectura.nextInt();
+                        System.out.println("seleccione variable a cambiar\n"
+                                + "   0. nombre;\n"
+                                + "   1.  sede\n"
+                                + "   2.  año\n"
+                                + "   3.  presidente\n"
+                                + "   4.  empleados\n"
+                                + "   5.  autos\n"
+                                + "   6.  marcas ");
+                        int variable = lectura.nextInt();
+                        if (corp.get(op) instanceof CorpAuto) {
+                            if (variable == 2) {
+                                System.out.println("camibio de año");
+                                System.out.println("año");
+                                int años = lectura.nextInt();
+                                System.out.println("mes");
+                                int mes = lectura.nextInt();
+                                System.out.println("dia");
+                                int dia = lectura.nextInt();
+                                Date año = new Date(años, mes, dia);
+                                ((CorpAuto) corp.get(op)).setAño(año);
+                            }
+                            if (variable == 0) {
+                                System.out.println("cambio de nombre");
+                                ((CorpAuto) corp.get(op)).setNombre(lectura.next());
+                            }
+                            if (variable == 1) {
+                                System.out.println("cambio de sede");
+                                ((CorpAuto) corp.get(op)).setSede(lectura.next());
+
+                            }
+                            if (variable == 3) {
+                                System.out.println("cambio precidente");
+                                ((CorpAuto) corp.get(op)).setPresidente(lectura.next());
+                            }
+                            if (variable == 4) {
+                                System.out.println("cambio empleados");
+                                ((CorpAuto) corp.get(op)).setEmpleados(lectura.nextInt());
+                            }
+                            if (variable == 5) {
+                                System.out.println("cambion de aoutos");
+                                ((CorpAuto) corp.get(op)).setAutos(lectura.nextInt());
+                            }
+                            if (variable == 6) {
+                                ArrayList marca = new ArrayList();
+                                System.out.println("cambio de marca");
+                                char resp = 's';
+                                while (resp == 's' || resp == 'S') {
+                                    System.out.println("agrege marca");
+                                    String mark = lectura.next();
+                                    marca.add(mark);
+                                    System.out.println("continua...");
+                                    resp = lectura.next().charAt(0);
+                                }
+                                ((CorpAuto) corp.get(op)).setMarcas(marca);
+                            }
+
+                        }
+                    }
+                    if (opcioncorp == 3) {//borrar
+                        System.out.println(" numero de lista a borrar");
+                        int numlista = lectura.nextInt();
+                        corp.remove(numlista);
+                    }
+                    if (opcioncorp == 4) {//mostrar
+                        for (int i = 0; i < corp.size(); i++) {
+                            System.out.println(corp.get(i));
+                        }
+
+                    }
+
+                    break;
                 }
-                break;
                 case 2: {
-                    String nombre;
-                    String sede;
-                    Date año;
-                    String presidente;
-                    int empleados;
-                    int autos;
-                    ArrayList<String> marcas = new ArrayList();
+                    if (marca2 == true) {
+
+                        String marca_tipo = "";
+                        System.out.println("tipo de marca,\n"
+                                + "1.premiun \n"
+                                + " a.sedán\n"
+                                + " b.hatchback\n "
+                                + " c.SUV\n"
+                                + "2.generalist\n"
+                                + " a.low cost\n"
+                                + " b.semi-primun\n");
+                        int cont = lectura.nextInt();
+                        if (cont == 1) {
+                            System.out.println("premiun\n"
+                                    + " a.sedán\n"
+                                    + " b.hatchback\n "
+                                    + " c.SUV");
+                            String letra = lectura.next();
+                            if (letra == "a") {
+                                System.out.println("nombre");
+                                String nombre = lectura.next();
+                                System.out.println("lema o slogan de la compñia");
+                                String slogan = lectura.next();
+                                System.out.println("Año integrado");
+                                System.out.println("año");
+                                int años = lectura.nextInt();
+                                System.out.println("mes");
+                                int mes = lectura.nextInt();
+                                System.out.println("dia");
+                                int dia = lectura.nextInt();
+                                Date año = new Date(años, mes, dia);//date
+
+                                System.out.println("Año integrado");
+                                System.out.println("año");
+                                int años1 = lectura.nextInt();
+                                System.out.println("mes");
+                                int mes1 = lectura.nextInt();
+                                System.out.println("dia");
+                                int dia1 = lectura.nextInt();
+                                Date integro = new Date(años1, mes1, dia1);//date
+
+                                System.out.println("Nombre del fundador");
+                                String fundador = lectura.next();
+                                System.out.println("ventas anuales");
+                                int ventas = lectura.nextInt();
+                                System.out.println("precidente del compañia");
+                                String presidente = lectura.next();
+                                System.out.println("numero de Modelo");
+                                int modelos = lectura.nextInt();
+                                System.out.println("nombre de su división deportiva");
+                                String divdeportiva = lectura.next();
+                                System.out.println("nombre de su división de lujo");
+                                String divlujo = lectura.next();
+                                System.out.println("tipo de carrocería másfabricada");
+                                String carrMasfabricada = lectura.next();
+                                marka.add(new Marcas(nombre, slogan, año, integro, fundador, ventas, presidente, modelos) + divdeportiva + divlujo + carrMasfabricada);
+
+                            }
+                            if (letra == "b") {
+                                System.out.println("nombre");
+                                String nombre = lectura.next();
+                                System.out.println("lema o slogan de la compñia");
+                                String slogan = lectura.next();
+                                System.out.println("Año integrado");
+                                System.out.println("año");
+                                int años = lectura.nextInt();
+                                System.out.println("mes");
+                                int mes = lectura.nextInt();
+                                System.out.println("dia");
+                                int dia = lectura.nextInt();
+                                Date año = new Date(años, mes, dia);//date
+
+                                System.out.println("Año integrado");
+                                System.out.println("año");
+                                int años1 = lectura.nextInt();
+                                System.out.println("mes");
+                                int mes1 = lectura.nextInt();
+                                System.out.println("dia");
+                                int dia1 = lectura.nextInt();
+                                Date integro = new Date(años1, mes1, dia1);//date
+
+                                System.out.println("Nombre del fundador");
+                                String fundador = lectura.next();
+                                System.out.println("ventas anuales");
+                                int ventas = lectura.nextInt();
+                                System.out.println("precidente del compañia");
+                                String presidente = lectura.next();
+                                System.out.println("numero de Modelo");
+                                int modelos = lectura.nextInt();
+
+                                System.out.println("nombre de su división deportiva");
+                                String divdeportiva = lectura.next();
+                                System.out.println("nombre de su división de lujo");
+                                String divlujo = lectura.next();
+                                System.out.println("tipo de carrocería másfabricada");
+                                String carrMasfabricada = lectura.next();
+                                marka.add(new Marcas(nombre, slogan, año, integro, fundador, ventas, presidente, modelos) + divdeportiva + divlujo + carrMasfabricada);
+
+                            }
+                            if (letra == "c") {
+                                System.out.println("nombre");
+                                String nombre = lectura.next();
+                                System.out.println("lema o slogan de la compñia");
+                                String slogan = lectura.next();
+                                System.out.println("Año integrado");
+                                System.out.println("año");
+                                int años = lectura.nextInt();
+                                System.out.println("mes");
+                                int mes = lectura.nextInt();
+                                System.out.println("dia");
+                                int dia = lectura.nextInt();
+                                Date año = new Date(años, mes, dia);//date
+
+                                System.out.println("Año integrado");
+                                System.out.println("año");
+                                int años1 = lectura.nextInt();
+                                System.out.println("mes");
+                                int mes1 = lectura.nextInt();
+                                System.out.println("dia");
+                                int dia1 = lectura.nextInt();
+                                Date integro = new Date(años1, mes1, dia1);//date
+
+                                System.out.println("Nombre del fundador");
+                                String fundador = lectura.next();
+                                System.out.println("ventas anuales");
+                                int ventas = lectura.nextInt();
+                                System.out.println("precidente del compañia");
+                                String presidente = lectura.next();
+                                System.out.println("numero de Modelo");
+                                int modelos = lectura.nextInt();
+
+                                System.out.println("nombre de su división deportiva");
+                                String divdeportiva = lectura.next();
+                                System.out.println("nombre de su división de lujo");
+                                String divlujo = lectura.next();
+                                System.out.println("tipo de carrocería másfabricada");
+                                String carrMasfabricada = lectura.next();
+                                marka.add(new Marcas(nombre, slogan, año, integro, fundador, ventas, presidente, modelos) + divdeportiva + divlujo + carrMasfabricada);
+
+                            }
+                        }
+                        if (cont == 2) {
+                            System.out.println(""
+                                    + "2.generalist\n"
+                                    + " a.low cost\n"
+                                    + " b.semi-primun\n");
+                            String letra = lectura.next();
+                            if (letra == "a") {
+                                System.out.println("nombre");
+                                String nombre = lectura.next();
+                                System.out.println("lema o slogan de la compñia");
+                                String slogan = lectura.next();
+                                System.out.println("Año integrado");
+                                System.out.println("año");
+                                int años = lectura.nextInt();
+                                System.out.println("mes");
+                                int mes = lectura.nextInt();
+                                System.out.println("dia");
+                                int dia = lectura.nextInt();
+                                Date año = new Date(años, mes, dia);//date
+
+                                System.out.println("Año integrado");
+                                System.out.println("año");
+                                int años1 = lectura.nextInt();
+                                System.out.println("mes");
+                                int mes1 = lectura.nextInt();
+                                System.out.println("dia");
+                                int dia1 = lectura.nextInt();
+                                Date integro = new Date(años1, mes1, dia1);//date
+
+                                System.out.println("Nombre del fundador");
+                                String fundador = lectura.next();
+                                System.out.println("ventas anuales");
+                                int ventas = lectura.nextInt();
+                                System.out.println("precidente del compañia");
+                                String presidente = lectura.next();
+                                System.out.println("numero de Modelo");
+                                int modelos = lectura.nextInt();
+
+                                if (letra == "b") {
+                                    marca_tipo = "semi-premium";
+                                }
+                                marka.add(new Marcas(nombre, slogan, año, integro, fundador, ventas, presidente, modelos) + marca_tipo);
+
+                            }
+                            if (letra == "b") {
+                                System.out.println("nombre");
+                                String nombre = lectura.next();
+                                System.out.println("lema o slogan de la compñia");
+                                String slogan = lectura.next();
+                                System.out.println("Año integrado");
+                                System.out.println("año");
+                                int años = lectura.nextInt();
+                                System.out.println("mes");
+                                int mes = lectura.nextInt();
+                                System.out.println("dia");
+                                int dia = lectura.nextInt();
+                                Date año = new Date(años, mes, dia);//date
+
+                                System.out.println("Año integrado");
+                                System.out.println("año");
+                                int años1 = lectura.nextInt();
+                                System.out.println("mes");
+                                int mes1 = lectura.nextInt();
+                                System.out.println("dia");
+                                int dia1 = lectura.nextInt();
+                                Date integro = new Date(años1, mes1, dia1);//date
+
+                                System.out.println("Nombre del fundador");
+                                String fundador = lectura.next();
+                                System.out.println("ventas anuales");
+                                int ventas = lectura.nextInt();
+                                System.out.println("precidente del compañia");
+                                String presidente = lectura.next();
+                                System.out.println("numero de Modelo");
+                                int modelos = lectura.nextInt();
+                                ;
+                                if (letra == "a") {
+                                    marca_tipo = "low cost";
+                                }
+                                marka.add(new Marcas(nombre, slogan, año, integro, fundador, ventas, presidente, modelos) + marca_tipo);
+
+                            }
+
+                        }
+
+                        break;
+                    }
+                }
+                case 3: {
+                    System.out.println("menu \n"
+                            + "1. agregar\n"
+                            + "2. editar\n"
+                            + "3. eliminar\n"
+                            + "4. listar");
+                    int menulist = lectura.nextInt();
+                    System.out.println("nombre nombre de la modelo");
+                    String nombreMod = lectura.next();
+                    if (menulist == 1) {
+
+                        System.out.println("Año fabricado");
+                        System.out.println("año");
+                        int año = lectura.nextInt();
+                        System.out.println("mes");
+                        int mes = lectura.nextInt();
+                        System.out.println("dia");
+                        int dia = lectura.nextInt();
+                        Date gc = new Date(año, mes, dia);// date
+                        System.out.println("tipo de cilindraje");
+                        int clindrada = lectura.nextInt();
+                        System.out.println("Precio de modelo");
+                        int precio = lectura.nextInt();
+                        System.out.println("tegnologia a usar");
+                        String tecnologia = lectura.next();
+                        System.out.println("Carroceria");
+                        String carroceria = lectura.next();
+
+                        Model.add(new Modelo(nombreMod, gc, tecnologia, clindrada, precio, tecnologia, carroceria));
+                    }
+                    if (menulist == 2) {
+                        System.out.println("selecione lista");
+                        int menulis = lectura.nextInt();
+                        System.out.println("seleccione variable\n"
+                                + "private String nombreMod;\n"
+                                + "   1. año\n"
+                                + "   2. tipo\n"
+                                + "   3. clindrada\n"
+                                + "   4. precio\n"
+                                + "   5. tecnologia\n"
+                                + "   6. carroceria");
+                        int con = lectura.nextInt();
+                        if (con == 1) {
+                            System.out.println("ingrese nuevo año");
+                            System.out.println("año");
+                            int año = lectura.nextInt();
+                            System.out.println("mes");
+                            int mes = lectura.nextInt();
+                            System.out.println("dia");
+                            int dia = lectura.nextInt();
+                            Date gc = new Date(año, mes, dia);
+                            ((Modelo) Model.get(menulis)).setAño(gc);
+                        }
+                        if (con == 2) {
+                            System.out.println("ingrese nuevo tipo de modelo");
+                            ((Modelo) Model.get(menulis)).setTipo(lectura.next());
+                        }
+                        if (con == 3) {
+
+                            System.out.println("ingrese nuevo cilindraje");
+                            ((Modelo) Model.get(menulis)).setClindrada(lectura.nextInt());
+                        }
+                        if (con == 4) {
+                            System.out.println("ingrese nuevo precio");
+                            ((Modelo) Model.get(menulis)).setPrecio(lectura.nextInt());
+                        }
+                        if (con == 5) {
+                            System.out.println(" ingrese tipo de tegnologia");
+                            ((Modelo) Model.get(menulis)).setTecnologia(lectura.next());
+                        }
+                        if (con == 6) {
+                            System.out.println("ingrese ");
+                        }
+                    }
+
                 }
                 break;
                 case 4: {
@@ -149,6 +547,17 @@ public class Lab3_RonyEstradaCarlosBarahona {
                             if (variable == 3) {
                                 System.out.println("Tipo de carroceria mas fabricada");
                                 ((Fabricas) fabrica.get(op)).setMasFabricada(lectura.next());
+                            }
+                            if (variable == 4) {
+                                System.out.println("Cantidad de empleados");
+                                ((Fabricas) fabrica.get(op)).setEmpleados(lectura.nextInt());
+                            }
+                            if (variable == 5) {
+
+                            }
+                            if (variable == 6) {
+                                System.out.println("Cantidad de autos fabricados hasta el momento");
+                                ((Fabricas) fabrica.get(op)).setAutFabricado(lectura.nextInt());
                             }
 
                         }
@@ -249,7 +658,7 @@ public class Lab3_RonyEstradaCarlosBarahona {
 
                                 }
                                 if (variable == 3) {
-                                      System.out.println("cambio empleados");
+                                    System.out.println("cambio empleados");
                                 }
 
                             }
@@ -269,6 +678,31 @@ public class Lab3_RonyEstradaCarlosBarahona {
                 }
                 break;
                 case 6: {
+                    System.out.println("");
+                    System.out.println("Corporaciones\n");
+                    for (Object i : corp) {
+                        System.out.print(i);
+                    }
+                    System.out.println("");
+                    System.out.println("Marcas\n");
+                    for (Object j : marka) {
+                        System.out.print(j);
+                    }
+                    System.out.println("");
+                    System.out.println("Modelos\n");
+                    for (Object f : Model) {
+                        System.out.print(f);
+                    }
+                    System.out.println("");
+                    System.out.println("Fabricas\n");
+                    for (Object g : fabrica) {
+                        System.out.print(g);
+                    }
+                    System.out.println("");
+                    System.out.println("Division Tecnologica\n");
+                    for (Object d : divTec) {
+                        System.out.print(d);
+                    }
 
                 }
             }

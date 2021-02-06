@@ -23,7 +23,7 @@ public class Generalista extends Marcas {
         this.tipo = tipo;
     }
 
-    public Generalista(String tipo, String nombre, String slogan, GregorianCalendar año, GregorianCalendar integracion, String fundador, int ventas, String presidente, int modelos) {
+    public Generalista(String tipo, String nombre, String slogan, Date año, Date integracion, String fundador, int ventas, String presidente, int modelos) {
         super(nombre, slogan, año, integracion, fundador, ventas, presidente, modelos);
         this.tipo = tipo;
     }

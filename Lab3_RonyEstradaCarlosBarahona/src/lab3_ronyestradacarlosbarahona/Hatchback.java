@@ -21,7 +21,7 @@ public class Hatchback extends Modelo {
     public Hatchback() {
     }
 
-    public Hatchback(int capacidad, int longitud, int bolsasAire, String nombreMod, GregorianCalendar año, String tipo, int clindrada, int precio, String tecnologia, String carroceria) {
+    public Hatchback(int capacidad, int longitud, int bolsasAire, String nombreMod, Date año, String tipo, int clindrada, int precio, String tecnologia, String carroceria) {
         super(nombreMod, año, tipo, clindrada, precio, tecnologia, carroceria);
         this.capacidad = capacidad;
         this.longitud = longitud;

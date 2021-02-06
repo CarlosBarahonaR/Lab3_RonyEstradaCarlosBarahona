@@ -15,25 +15,30 @@ import java.util.GregorianCalendar;
  */
 public class CorpAuto {
 
-    private String nombre;
+      private String nombre;
     private String sede;
-    private GregorianCalendar año;
+    private Date año;
     private String presidente;
     private int empleados;
     private int autos;
-    private ArrayList<String> marcas = new ArrayList();
+    private ArrayList marcas = new ArrayList();
 
     public CorpAuto() {
     }
 
-    public CorpAuto(String nombre, String sede, GregorianCalendar año, String presidente, int empleados, int autos) {
+    public CorpAuto(String nombre, String sede, Date año,String presidente, int empleados, int autos, ArrayList marcas) {
         this.nombre = nombre;
         this.sede = sede;
-        this.año = año;
+        this.año=año;
         this.presidente = presidente;
         this.empleados = empleados;
         this.autos = autos;
+        this.marcas= marcas;
     }
+
+   
+
+    
 
     public String getNombre() {
         return nombre;
@@ -51,11 +56,11 @@ public class CorpAuto {
         this.sede = sede;
     }
 
-    public GregorianCalendar getAño() {
+    public Date getAño() {
         return año;
     }
 
-    public void setAño(GregorianCalendar año) {
+    public void setAño(Date año) {
         this.año = año;
     }
 

@@ -27,7 +27,7 @@ public class Premium extends Marcas {
         this.carroceria = carroceria;
     }
 
-    public Premium(String mardepo, String nomlujo, String carroceria, String nombre, String slogan, GregorianCalendar año, GregorianCalendar integracion, String fundador, int ventas, String presidente, int modelos) {
+    public Premium(String mardepo, String nomlujo, String carroceria, String nombre, String slogan, Date año, Date integracion, String fundador, int ventas, String presidente, int modelos) {
         super(nombre, slogan, año, integracion, fundador, ventas, presidente, modelos);
         this.mardepo = mardepo;
         this.nomlujo = nomlujo;

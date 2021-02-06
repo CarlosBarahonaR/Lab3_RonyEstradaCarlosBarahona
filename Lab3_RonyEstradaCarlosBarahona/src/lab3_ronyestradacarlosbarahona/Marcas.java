@@ -16,8 +16,8 @@ public class Marcas {
 
     private String nombre;
     private String slogan;
-    private GregorianCalendar año;
-    private GregorianCalendar integracion;
+    private Date año;
+    private Date integracion;
     private String fundador;
     private int ventas;
     private String presidente;
@@ -26,7 +26,7 @@ public class Marcas {
     public Marcas() {
     }
 
-    public Marcas(String nombre, String slogan, GregorianCalendar año, GregorianCalendar integracion, String fundador, int ventas, String presidente, int modelos) {
+    public Marcas(String nombre, String slogan, Date año, Date integracion, String fundador, int ventas, String presidente, int modelos) {
         this.nombre = nombre;
         this.slogan = slogan;
         this.año = año;
@@ -53,19 +53,19 @@ public class Marcas {
         this.slogan = slogan;
     }
 
-    public GregorianCalendar getAño() {
+    public Date getAño() {
         return año;
     }
 
-    public void setAño(GregorianCalendar año) {
+    public void setAño(Date año) {
         this.año = año;
     }
 
-    public GregorianCalendar getIntegracion() {
+    public Date getIntegracion() {
         return integracion;
     }
 
-    public void setIntegracion(GregorianCalendar integracion) {
+    public void setIntegracion(Date integracion) {
         this.integracion = integracion;
     }
 
