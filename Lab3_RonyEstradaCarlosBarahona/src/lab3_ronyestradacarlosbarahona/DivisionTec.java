@@ -16,17 +16,18 @@ import java.util.GregorianCalendar;
 public class DivisionTec {
 
     private String nombre;
-    private GregorianCalendar creacion;
+    private Date creacion;
     private String campo;
     private ArrayList<String> tecnologia = new ArrayList();
 
     public DivisionTec() {
     }
 
-    public DivisionTec(String nombre, GregorianCalendar creacion, String campo) {
+    public DivisionTec(String nombre, Date creacion, String campo, ArrayList<String> tecnologia) {
         this.nombre = nombre;
         this.creacion = creacion;
         this.campo = campo;
+        this.tecnologia=tecnologia;
     }
 
     public String getNombre() {
@@ -37,11 +38,11 @@ public class DivisionTec {
         this.nombre = nombre;
     }
 
-    public GregorianCalendar getCreacion() {
+    public Date getCreacion() {
         return creacion;
     }
 
-    public void setCreacion(GregorianCalendar creacion) {
+    public void setDate(Date creacion) {
         this.creacion = creacion;
     }
 

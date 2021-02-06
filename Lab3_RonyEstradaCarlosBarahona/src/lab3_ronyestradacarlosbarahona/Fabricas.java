@@ -24,12 +24,13 @@ public class Fabricas {
     public Fabricas() {
     }
 
-    public Fabricas(String nombre, String ubicacion, int fabricado, String masFabricada, int empleados, int autFabricado) {
+    public Fabricas(String nombre, String ubicacion, int fabricado, String masFabricada, int empleados,ArrayList<String> marcas, int autFabricado) {
         this.nombre = nombre;
         this.ubicacion = ubicacion;
         this.fabricado = fabricado;
         this.masFabricada = masFabricada;
         this.empleados = empleados;
+        this.marcas = marcas;
         this.autFabricado = autFabricado;
     }
 
